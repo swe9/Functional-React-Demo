@@ -38,7 +38,7 @@ function App() {
     let i = item as giphy_trending;
     return (
         <div>
-            <img src={i.images.fixed_height.url} width="200" alt={i.title} />
+            <img src={i.images.fixed_height.url} height="200" alt={i.title} />
             <br />
             {i.title}
         </div>
