@@ -10,6 +10,7 @@ export type InfiniteGridProps = {
     openItem: (id: string) => void;
     renderItem: (item: any) => React.ReactNode;
 }
+
 const InfiniteGrid = (props: InfiniteGridProps) => {
     function chunk_array<T>(arr: Array<T>, chunkSize: number): Array<Array<T>> {
         var R = [];
