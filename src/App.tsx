@@ -18,6 +18,7 @@ function App() {
     setItems(items.concat(result.data.data));
   }
 
+  // Passing empty array of dependencies creates warnings because fetchData depends on items
   useEffect(() => {
     if (items.length === 0) fetchData();
   });
@@ -25,7 +26,7 @@ function App() {
   const nextPage = () => { fetchData() };
 
   const openItemHandler = (id: string) => {
-    let item = items.filter((item: giphy_trending) => item.id === id)[0];
+    let item = items.filter((item) => item.id === id)[0];
     setOpenedItem(item)
   }
 
@@ -34,14 +35,15 @@ function App() {
   }
 
   const renderItem = (item: any) => {
+    let i = item as giphy_trending;
     return (
         <div>
-            <img src={item.images.fixed_height.url} width="200" alt="img" />
+            <img src={i.images.fixed_height.url} width="200" alt={i.title} />
             <br />
-            {item.title}
+            {i.title}
         </div>
     )
-}
+  }
 
   if (openedItem === null) {
     return (
@@ -59,9 +61,9 @@ function App() {
   } else {
     let item = openedItem as unknown as giphy_trending;
     return (
-      <div><img src={item.images.original.url} width="200" alt="img" />
+      <div><img src={item.images.original.url} alt={item.title} />
         <br />
-        { item.title}
+        {item.title}
         <br />
         <button type="button" onClick={closeOpenedItem}>Close</button>
       </div>
