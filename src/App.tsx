@@ -1,32 +1,26 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux'
 
-import giphy_trending, { giphy_api_key } from 'Giphy'
+import giphy_trending from 'Giphy'
 import InfiniteGrid from 'InfiniteGrid'
+import { addItemsAsync, selectItems } from 'features/items/itemsSlice';
 
 function App() {
+  const items = useSelector(selectItems)
+  const dispatch = useDispatch()
+
   const [openedItem, setOpenedItem] = useState<giphy_trending>(null as unknown as giphy_trending);
-  const [items, setItems] = useState<giphy_trending[]>([]);
   const [filter, setFilter] = useState("");
 
-  const fetchData = async () => {
-    const result = await axios(
-      `http://api.giphy.com/v1/gifs/trending?api_key=${giphy_api_key}&offset=${items.length}`,
-    );
-
-    setItems(items.concat(result.data.data));
-  }
-
-  // Passing empty array of dependencies creates warnings because fetchData depends on items
   useEffect(() => {
-    if (items.length === 0) fetchData();
-  });
+    if (items.length === 0) dispatch(addItemsAsync(0))
+  })
 
-  const nextPage = () => { fetchData() };
+  const nextPage = () => { dispatch(addItemsAsync(items.length))}
 
   const openItemHandler = (id: string) => {
-    let item = items.filter((item) => item.id === id)[0];
+    let item = items.filter((item: giphy_trending) => item.id === id)[0];
     setOpenedItem(item)
   }
 
@@ -50,7 +44,7 @@ function App() {
       <div>
         <input type="text" value={filter} onChange={event => setFilter(event.target.value)} />
         <InfiniteGrid
-          items={items.filter((item) => item.title.includes(filter))}
+          items={items.filter((item: giphy_trending) => item.title.includes(filter))}
           itemsPerRow="3" 
           nextPage={nextPage}
           openItem={openItemHandler}
