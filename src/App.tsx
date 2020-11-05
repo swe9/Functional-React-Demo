@@ -42,6 +42,7 @@ function App() {
   if (openedItem === null) {
     return (
       <div>
+        <h1>Giphy Project for Signal</h1>
         <input type="text" value={filter} onChange={event => setFilter(event.target.value)} />
         <InfiniteGrid
           items={items.filter((item: giphy_trending) => item.title.includes(filter))}
