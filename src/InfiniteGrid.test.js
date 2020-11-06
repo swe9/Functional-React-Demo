@@ -88,5 +88,6 @@ test('calls openItem when item is clicked', async () => {
     const gridElement = screen.getByText("Item 1");
     await userEvent.click(gridElement)
     expect(openItem).toHaveBeenCalledTimes(1)
+    expect(openItem).toHaveBeenCalledWith("1")
 });
 
