@@ -15,3 +15,7 @@ The page loads the first page of images automatically.  After that, scrolling wi
 There is a text entry box at the top of the page, typing a search term in there will filter the list of images based on their title containing that text anywhere.
 
 Clicking on an image will open that image in its full size, offering a close button to return to the main page.
+
+# How can I see it in action?
+
+Click [here](http://github.io/swe9/functional-react-demo). <-- in progress...
