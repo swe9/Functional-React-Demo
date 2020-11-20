@@ -1,5 +1,5 @@
 {
-  "name": "signal3",
+  "name": "Functional-React-Demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,12 +15,12 @@
     "react-grid-system": "^7.1.1",
     "react-infinite-scroll-component": "^5.1.0",
     "react-redux": "^7.2.2",
-    "react-scripts": "4.0.0",
+    "react-scripts": "^4.0.0",
     "redux": "^4.0.5",
     "typescript": "^4.0.5",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "https://swe9.github.io/signal3",
+  "homepage": "https://swe9.github.io/Functional-React-Demo",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
