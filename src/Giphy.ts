@@ -42,7 +42,7 @@ interface giphy_trending {
 
 export async function fetchGiphyItems(offset: number) {
   const result = await axios(
-    `http://api.giphy.com/v1/gifs/trending?api_key=${giphy_api_key}&offset=${offset}`,
+    `https://api.giphy.com/v1/gifs/trending?api_key=${giphy_api_key}&offset=${offset}`,
   );
 
   return result.data.data
