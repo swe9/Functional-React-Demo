@@ -18,6 +18,7 @@ export const addItemsAsync = (offset: number) => {
           dispatch(addItems(newItems))
       } catch (err) {
           // some error handling...
+          alert("error fetching Giphy items for offset " + offset)
       }
     }
 }
