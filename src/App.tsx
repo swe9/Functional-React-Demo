@@ -14,7 +14,6 @@ function App() {
   const [filter, setFilter] = useState("");
 
   useEffect(() => {
-    if (typeof items === 'undefined') alert("items is undefined")
     if (items.length === 0) dispatch(addItemsAsync(0))
   })
 
