@@ -18,4 +18,4 @@ Clicking on an image will open that image in its full size, offering a close but
 
 # How can I see it in action?
 
-Click [here](http://github.io/swe9/functional-react-demo). <-- in progress...
+Click [here](http://github.io/swe9/Functional-React-Demo).
